@@ -1,0 +1,12 @@
+.header {
+    background: #000;
+}
+
+.header_inner {
+    max-width: 1230px;
+}
+
+.header_logo {
+    color: #fff;
+    font-size: 24px;
+}

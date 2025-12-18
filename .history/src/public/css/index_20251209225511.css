@@ -1,0 +1,10 @@
+.todo_alert--success {
+    padding: 10px 30px;
+    border-color: #badbcc;
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.todo_alert--danger {
+    padding: 10px 0;
+}

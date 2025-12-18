@@ -1,0 +1,18 @@
+.todo_heading {
+    background: #d1e7dd;
+}
+
+.todo-heading_success {
+    color: #0f5132;
+    border-color: #badbcc;
+}
+
+.update-todo_button-submit {
+    background: #0000ff;
+    color: #fff;
+}
+
+.delete-todo_button-submit {
+    background: #ff0000;
+    color: #fff;
+}

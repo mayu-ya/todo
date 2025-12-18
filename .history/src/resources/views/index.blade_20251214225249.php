@@ -1,0 +1,64 @@
+@extends('layouts.app')
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/index.css') }}">
+@endsection
+
+@section('content')
+<div class="todo_alert">
+    @if(session('message'))
+    <div class="todo_alert--success">
+        {{ session('message')}}
+    </div>
+    @endif
+    @if($errors->any())
+    <div class="todo_alert--danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+</div>
+
+<div class="todo_content">
+    <form class="create-form" action="/todos" method="post">
+        @csrf
+        <div class="create-form_item">
+            <input class="create-form_item-input" type="text" name="content">
+        </div>
+        <div class="create-form_button">
+            <button class="create-form_button-submit" type="submit">作成</button>
+        </div>
+    </form>
+    <div class="todo-table">
+        <table class="todo-table_inner">
+            <tr class="todo-table_row">
+                <th class="todo-table_header">Todo</th>
+            </tr>
+            @foreach ($todos as $todo)
+            <tr class="todo-table_row">
+                <td class="todo-table_item">
+                    <form class="update-form">
+                        <div class="update-form_item">
+                            <input type="text" class="update-form_item-input" name="content" value="test">{{ $todo['content'] }}</input>
+                        </div>
+                        <div class="update-form_button">
+                            <button class="update-form_button-submit" type="submit">更新</button>
+                        </div>
+                    </form>
+                </td>
+                <td class="todo-table_item">
+                    <form class="delete-form">
+                        <div class="delete-form_button">
+                            <button class="delete-form_button-submit" type="submit">削除</button>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </table>
+    </div>
+</div>
+@endsection

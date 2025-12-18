@@ -1,0 +1,28 @@
+@extends('layouts.app')
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/index.css') }}">
+@endsection
+
+<div class="todo_heading">
+    <div class="todo-heading_success">
+        Todoを作成しました
+    </div>
+</div>
+
+<div class="todo-form_content">    
+    <form class="form">
+        <input type="text" name="todo" value="">
+        <div class="form_button">
+           <button>作成</button>
+        </div>
+    </form>
+    <div class="todo-table">
+        <tr class="todo-table_row">
+            <th class="todo-table_header">Todo</th>
+        </tr>
+        <tr class="todo-table_row">
+            <td class="todo-table_text"></td>
+        </tr>
+    </div>
+</div>
