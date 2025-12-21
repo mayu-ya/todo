@@ -23,19 +23,42 @@
 </div>
 
 <div class="todo_content">
+    <div class="section-title">
+        <h2>新規作成</h2>
+    </div>
     <form class="create-form" action="/todos" method="post">
         @csrf
         <div class="create-form_item">
-            <input class="create-form_item-input" type="text" name="content">
+            <input class="create-form_item-input" type="text" name="content" value="{{ old('content') }}">
+            <select class="create-form_item-select">
+                <option value="">カテゴリ</option>
+            </select>
         </div>
         <div class="create-form_button">
             <button class="create-form_button-submit" type="submit">作成</button>
         </div>
     </form>
+    <div class="section_title">
+        <h2>Todo羂索</h2>
+    </div>
+    <form class="search-form">
+        <div class="search-form_item">
+            <input type="text" class="search-form_item-input">
+            <select class="search-form_item-select">
+                <option value="">カテゴリ</option>
+            </select>
+        </div>
+        <div class="search-form_button">
+            <button class="seach-fom_button-submit" type="submit">検索</button>
+        </div>
+    </form>
     <div class="todo-table">
         <table class="todo-table_inner">
             <tr class="todo-table_row">
-                <th class="todo-table_header">Todo</th>
+                <th class="todo-table_header">
+                    <span class="todo-table_header-span">Todo</span>
+                    <span class="todo-table_header-span">カテゴリ</span>
+                </th>
             </tr>
             @foreach ($todos as $todo)
             <tr class="todo-table_row">
@@ -46,6 +69,9 @@
                         <div class="update-form_item">
                             <input type="text" class="update-form_item-input" name="content" value="{{ $todo['content'] }}">
                             <input type="hidden" name="id" value="{{ $todo['id'] }}">
+                        </div>
+                        <div class="update-form_item">
+                            <p class="update-form_item-p">Category</p>
                         </div>
                         <div class="update-form_button">
                             <button class="update-form_button-submit" type="submit">更新</button>
