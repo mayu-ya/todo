@@ -23,7 +23,7 @@
 </div>
 
 <div class="todo_content">
-    <div class="section-title">
+    <div class="section_title">
         <h2>新規作成</h2>
     </div>
     <form class="create-form" action="/todos" method="post">
@@ -39,7 +39,7 @@
         </div>
     </form>
     <div class="section_title">
-        <h2>Todo羂索</h2>
+        <h2>Todo検索</h2>
     </div>
     <form class="search-form">
         <div class="search-form_item">
@@ -49,7 +49,7 @@
             </select>
         </div>
         <div class="search-form_button">
-            <button class="seach-fom_button-submit" type="submit">検索</button>
+            <button class="search-form_button-submit" type="submit">検索</button>
         </div>
     </form>
     <div class="todo-table">
@@ -71,10 +71,12 @@
                             <input type="hidden" name="id" value="{{ $todo['id'] }}">
                         </div>
                         <div class="update-form_item">
-                            <p class="update-form_item-p">Category</p>
+                            <p class="update-form_item-p">Category 1</p>
                         </div>
                         <div class="update-form_button">
-                            <button class="update-form_button-submit" type="submit">更新</button>
+                            <button class="update-form_button-submit" type="submit">
+                                更新
+                            </button>
                         </div>
                     </form>
                 </td>
@@ -83,8 +85,9 @@
                         @method('DELETE')
                         @csrf
                         <div class="delete-form_button">
-                            <input type="hidden" name="id" value="{{ $todo['id'] }}">
-                            <button class="delete-form_button-submit" type="submit">削除</button>
+                            <button class="delete-form_button-submit" type="submit">
+                                削除
+                            </button>
                         </div>
                     </form>
                 </td>
