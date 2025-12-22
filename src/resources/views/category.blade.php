@@ -12,9 +12,10 @@
 </div>
 
 <div class="category_content">
-    <form class="create-form">
+    <form class="create-form" action="/catedories" method="post">
+        @csrf
         <div class="create-form_item">
-            <input type="text" class="create-form_item-input" name="content">
+            <input type="text" class="create-form_item-input" name="name">
         </div>
         <div class="create-form_button">
             <button class="create-form_button-submit" type="submit">作成</button>
