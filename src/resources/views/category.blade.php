@@ -7,7 +7,7 @@
 @section('content')
 <div class="category_alert">
     <div class="category_alert--success">
-        カテゴリを削除しました
+        //
     </div>
 </div>
 
@@ -30,7 +30,7 @@
                 <td class="category-table_item">
                     <form class="update-form">
                         <div class="update-form_item">
-                            <input type="text" class="update-form_item-input" name="content" value="category1">
+                            <input type="text" class="update-form_item-input" value="{{ $category['name'] }}">
                         </div>
                         <div class="update-form_button">
                             <button class="update-form_button-submit" type="submit">更新</button>
@@ -49,7 +49,7 @@
                 <td class="category-table_item">
                     <form class="update-form">
                         <div class="update-form_item">
-                            <input type="text" class="update-form_item-input" name="content" value="category2">
+                            <input type="text" class="update-form_item-input" value="{{ $category['name'] }}" 
                         </div>
                         <div class="update-form_button">
                             <button class="update-form_button-submit" type="submit">更新</button>
