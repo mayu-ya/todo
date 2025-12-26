@@ -6,9 +6,20 @@
 
 @section('content')
 <div class="category_alert">
+    @if(session('message'))
     <div class="category_alert--success">
-        //
+        {{ session('message') }}
     </div>
+    @endif
+    @if($errors->any())
+    <div class="category_alert--danger">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 </div>
 
 <div class="category_content">
@@ -26,6 +37,7 @@
             <tr class="category-table_row">
                 <th class="category-table_header">category</th>
             </tr>
+            @foreach($categories as $category)
             <tr class="category-table_row">
                 <td class="category-table_item">
                     <form class="update-form">
@@ -64,6 +76,7 @@
                     </form>
                 </td>
             </tr>
+            @endforeach
         </table>
     </div>
 </div>
