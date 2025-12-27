@@ -23,10 +23,10 @@
 </div>
 
 <div class="category_content">
-    <form class="create-form" action="/catedories" method="post">
+    <form class="create-form" action="/categories" method="post">
         @csrf
         <div class="create-form_item">
-            <input type="text" class="create-form_item-input" name="name">
+            <input type="text" class="create-form_item-input" name="name" value="{{ old('name') }}">
         </div>
         <div class="create-form_button">
             <button class="create-form_button-submit" type="submit">作成</button>
