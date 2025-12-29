@@ -11,8 +11,9 @@ class TodoController extends Controller
 {
     public function index()
     {
-        $todos = Todo::all();
-        return view('index', compact('todos'));
+        $todos = Todo::with('category')->get();
+        $categories = Category::all();
+        return view('index', compact('todos', 'categories'));
     }
 
     public function store(TodoRequest $request)
