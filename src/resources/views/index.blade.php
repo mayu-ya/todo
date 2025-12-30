@@ -30,8 +30,11 @@
         @csrf
         <div class="create-form_item">
             <input class="create-form_item-input" type="text" name="content" value="{{ old('content') }}">
-            <select class="create-form_item-select">
+            <select class="create-form_item-select" name="category_id">
                 <option value="">カテゴリ</option>
+                @foreach($categories as $category)
+                <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+                @endforeach
             </select>
         </div>
         <div class="create-form_button">
@@ -41,11 +44,15 @@
     <div class="section_title">
         <h2>Todo検索</h2>
     </div>
-    <form class="search-form">
+    <form class="search-form" action="/todos/search" method="get">
+        @csrf
         <div class="search-form_item">
-            <input type="text" class="search-form_item-input">
-            <select class="search-form_item-select">
+            <input type="text" class="search-form_item-input" name="keyword" value="{{ old('keyword') }}">
+            <select class="search-form_item-select" name="category_id">
                 <option value="">カテゴリ</option>
+                @foreach($categories as $category)
+                <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+                endforeach
             </select>
         </div>
         <div class="search-form_button">
@@ -71,7 +78,7 @@
                             <input type="hidden" name="id" value="{{ $todo['id'] }}">
                         </div>
                         <div class="update-form_item">
-                            <p class="update-form_item-p">Category 1</p>
+                            <p class="update-form_item-p">{{ $todo['category']['name'] }}</p>
                         </div>
                         <div class="update-form_button">
                             <button class="update-form_button-submit" type="submit">
